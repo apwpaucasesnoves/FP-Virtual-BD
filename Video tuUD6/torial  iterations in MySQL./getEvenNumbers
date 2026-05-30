@@ -1,0 +1,52 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getEvenNumbers`()
+
+BEGIN
+
+-- I do the declares, important doing them before of all
+
+ DECLARE x INT ; -- 
+
+ DECLARE string_value varchar(50);
+
+ -- I give initial values to them 
+
+ SET x=1;
+
+ SET string_value =""; 
+
+
+
+
+loop_label_name: LOOP
+
+-- we do a first considition LEAVING when x greater than 20. 
+
+ IF x>=20  THEN
+
+ LEAVE loop_label_name;
+
+ END IF;
+
+ SET x=x+1; -- we increase the number by one
+
+ IF (x mod 2) THEN -- this is 1 when even number 
+
+ ITERATE loop_label_name;/* ITEREATE: continue the loop, meaning returning to the if x>=10*/
+
+ ELSE 
+
+ SET string_value = CONCAT(string_value,x," , ");
+
+ END IF; 
+
+END LOOP;   
+
+SELECT string_value;  
+
+
+
+
+
+
+
+END
