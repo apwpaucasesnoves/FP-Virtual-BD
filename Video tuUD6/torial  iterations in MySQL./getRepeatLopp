@@ -1,0 +1,80 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getRepeatLopp`()
+
+BEGIN
+
+-- I do the declares, important doing them before of all
+
+DECLARE x INT ; -- 
+
+DECLARE string_value varchar(50);
+
+-- I give initial values to them 
+
+SET x=1;
+
+SET string_value =""; 
+
+
+
+
+REPEAT 
+
+ SET string_value = CONCAT(string_value,x," , ");
+
+    SET x=x+1;
+
+ UNTIL x > 10
+
+END REPEAT;
+
+SELECT string_value;
+
+
+END
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getLoopDate`()
+
+BEGIN
+
+-- I do the declares, important doing them before of all
+
+DECLARE x INT ; -- 
+
+DECLARE string_value varchar(50);
+
+-- I give initial values to them 
+
+SET x=1;
+
+SET string_value =""; 
+
+
+
+
+loop_label_name: LOOP
+
+ if x>=5 THEN 
+
+ LEAVE loop_label_name;
+
+ /* INSIDE THE LOOP MYSQL WE HAVE TWO OPTIONS
+
+ 2. LEAVE: Terminate the running loop*/
+
+ END IF;
+
+  -- if loop does not finish we do the statements
+
+ SET string_value = CONCAT(string_value,x," , ");
+
+ SET x=x+1;
+
+ END LOOP;
+
+
+
+
+SELECT string_value;
+
+END
