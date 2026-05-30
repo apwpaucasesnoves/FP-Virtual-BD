@@ -1,0 +1,20 @@
+CREATE DEFINER=`root`@`localhost` FUNCTION `FunctionGetTotalAgentesMadrid`(familia_a_buscar varchar(40)) RETURNS int
+
+    READS SQL DATA
+
+BEGIN
+
+DECLARE total INTEGER; 
+
+SELECT COUNT(*) INTO total 
+
+
+
+
+FROM agentes JOIN familias ON agentes.familia = familias.identificador
+
+WHERE familias.nombre=familia_a_buscar;
+
+RETURN total;
+
+END
