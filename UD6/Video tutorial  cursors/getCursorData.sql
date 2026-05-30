@@ -1,0 +1,39 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getCursorData`()
+
+BEGIN
+
+DECLARE finished int default 0;-- control end of cursor
+
+DECLARE claves_list varchar(500) default "";-- variable for output
+
+DECLARE  user_clave varchar(30) default ""; -- variable i'll use to iterate
+
+DECLARE user_data CURSOR FOR SELECT clave FROM agentes limit 5; -- I will read the clave with this cursor up to 5 users
+
+DECLARE CONTINUE HANDLER FOR NOT FOUND  SET finished = 1; -- when cursor finishes reading all the data
+
+OPEN user_data;
+
+get_user_clave: LOOP 
+
+FETCH user_data INTO user_clave; -- Clave list containd all the data in this row, 
+
+-- we write the finishing condition, if the loop finishes we have to leave
+
+IF finished=1 THEN 
+
+LEAVE get_user_clave;
+
+END IF; 
+
+SET claves_list=CONCAT(claves_list,user_clave, " , "); -- we write the value of clave inside claves_list
+
+END LOOP get_user_clave;
+
+CLOSE user_data;
+
+SELECT claves_list;
+
+END
+
+
