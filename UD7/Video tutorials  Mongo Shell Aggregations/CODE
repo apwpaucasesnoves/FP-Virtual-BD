@@ -1,0 +1,88 @@
+db.books.aggregate([
+
+  { $match: { Categories: "Classics" } },
+
+  { $sort: { Title: 1 } }
+
+
+
+
+])
+
+*
+
+db.books.aggregate([
+
+  { $match: { Categories: "Classics" } },
+
+  { $sort: { Title: 1 } },
+
+  { $project: { _id: 0, Title: 1, Language: 1, TitleAuthor: { $concat: ["$Title", " - ", "$Author"] } } }
+
+])
+
+*
+
+db.books.aggregate([ 
+
+{ $match: { Categories: "Classics" } }, 
+
+{ $sort: { Title: 1 } }, 
+
+{ $project: { Title: 1, Language: 1, TitleAuthor: { $concat: ["$Title", " - ", "$Author"] } } 
+
+}] )
+
+*
+
+db.books.aggregate([
+
+  { $match: { Categories: "Classics" } },
+
+  { $group: { _id: "$Language", Count: { $sum: 1 } } }
+
+])
+
+*
+
+db.books.aggregate([
+
+  { $match: { Categories: "Classics" } },
+
+  { $sort: { Title: 1 } },
+
+  { $project: { _id: 0, Title: 1, Language: 1, TitleAuthor: { $concat: ["$Title", " - ", "$Author"] } } },
+
+  { $skip: 1 },
+
+  { $limit: 2 }
+
+])
+
+*
+
+db.books.aggregate([
+
+  { $match: { Categories: "Classics" } },
+
+  { $unwind: "$Categories" }
+
+])
+
+*
+
+db.books.aggregate([
+
+  { $match: { Categories: "Philosophy" } },
+
+  { $unwind: "$Categories" },
+
+  { $sort: { Title: 1 } },
+
+  { $project: { _id: 0, Title: 1, Category: "$Categories" } },
+
+  { $out: "philosophy_books" }
+
+])
+
+*
