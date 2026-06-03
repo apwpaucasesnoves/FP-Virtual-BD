@@ -1,0 +1,84 @@
+db.books.find({Categories: {$all: ["Science Fiction", "Classics"]}})
+
+db.books.find({Categories:{$size: 3}})
+
+*
+
+db.books.find({
+
+  $and: [
+
+    { Categories: "Science Fiction" },
+
+    { $expr: { $gte: [{ $size: "$Categories" }, 2] } }
+
+  ]
+
+})
+
+*
+
+
+
+
+db.books.find({
+
+  $and: [
+
+    { Categories: "Science Fiction" },
+
+    { $expr: { $gte: [{ $size: "$Categories" }, 2] } }
+
+  ]
+
+})
+
+*
+
+db.books.updateOne(
+
+  { Title: "1984" },
+
+  { $push: { Categories: "Political" } }
+
+)
+
+*
+
+db.books.updateOne(
+
+  { Title: "Brave New World" },
+
+  { $push: { Categories: { $each: ["Philosophy", "Social Commentary"] } } }
+
+)
+
+*
+
+db.books.updateOne(
+
+  { Title: "The Handmaid's Tale" },
+
+  { $pop: { Categories: -1 } }
+
+)
+
+*
+
+db.books.updateMany(
+
+  {},
+
+  { $pull: { Categories: "Science Fiction" } }
+
+)
+
+*
+
+db.books.updateOne(
+
+  { Title: "1984" },
+
+  { $push: { Categories: { $each: ["Philosophy"], $position: 1 } } }
+
+)
