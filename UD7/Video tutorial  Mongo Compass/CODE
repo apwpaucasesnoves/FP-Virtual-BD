@@ -1,0 +1,346 @@
+/**
+
+* Paste one or more documents here
+
+*/
+
+{
+
+   "clientName": "James Carter",
+
+"telephone": "202-555-0178",
+
+"city": "Washington",
+
+"street": "Lincoln Avenue",
+
+"number": 123,
+
+"state": "DC",
+
+"birthdate": "1990-05-15"
+
+  }
+
+}
+
+*
+
+/** 
+
+* Paste one or more documents here
+
+*/
+
+[
+
+  {
+
+    "clientName": "Sophia Johnson",
+
+    "telephone": "310-555-0193",
+
+    "city": "Los Angeles",
+
+    "street": "Sunset Boulevard",
+
+    "number": 456,
+
+    "state": "CA",
+
+    "birthdate": "1985-09-22"
+
+  },
+
+  {
+
+    "clientName": "Michael Brown",
+
+    "telephone": "305-555-0119",
+
+    "city": "Miami",
+
+    "street": "Ocean Drive",
+
+    "number": 789,
+
+    "state": "FL",
+
+    "birthdate": "1992-12-03"
+
+  },
+
+  {
+
+    "clientName": "Emily Davis",
+
+    "telephone": "312-555-0167",
+
+    "city": "Chicago",
+
+    "street": "Magnificent Mile",
+
+    "number": 321,
+
+    "state": "IL",
+
+    "birthdate": "1988-07-19"
+
+  },
+
+  {
+
+    "clientName": "William Martinez",
+
+    "telephone": "212-555-0145",
+
+    "city": "New York",
+
+    "street": "Broadway",
+
+    "number": 654,
+
+    "state": "NY",
+
+    "birthdate": "1995-03-08"
+
+  }
+
+]
+
+*
+
+{state: "CA"}
+
+*
+
+[
+
+  {
+
+    "name": "Wireless Mouse",
+
+    "price": 29.99,
+
+    "size": "Medium"
+
+  },
+
+  {
+
+    "name": "Bluetooth Headphones",
+
+    "price": 59.99,
+
+    "size": "Large"
+
+  },
+
+  {
+
+    "name": "Laptop Backpack",
+
+    "price": 79.99,
+
+    "size": "Large"
+
+  },
+
+  {
+
+    "name": "Smartphone Case",
+
+    "price": 15.99,
+
+    "size": "Small"
+
+  },
+
+  {
+
+    "name": "Gaming Keyboard",
+
+    "price": 89.99,
+
+    "size": "Medium"
+
+  },
+
+  {
+
+    "name": "USB-C Charger",
+
+    "price": 19.99,
+
+    "size": "Small"
+
+  },
+
+  {
+
+    "name": "External Hard Drive",
+
+    "price": 99.99,
+
+    "size": "Medium"
+
+  },
+
+  {
+
+    "name": "Fitness Tracker",
+
+    "price": 49.99,
+
+    "size": "Small"
+
+  },
+
+  {
+
+    "name": "4K Monitor",
+
+    "price": 299.99,
+
+    "size": "Extra Large"
+
+  },
+
+  {
+
+    "name": "Desk Lamp",
+
+    "price": 39.99,
+
+    "size": "Medium"
+
+  }
+
+]
+
+*
+
+[
+
+  {
+
+    "id": "SUP-4F9A8C2B1E",
+
+    "name": "Global Supplies Co.",
+
+    "phone": "305-555-0143",
+
+    "city": "Miami",
+
+    "street": "Commerce Avenue",
+
+    "number": 124,
+
+    "state": "FL",
+
+    "birthdate": "1998-07-12"
+
+  },
+
+  {
+
+    "id": "SUP-XR12-9C83Z7",
+
+    "name": "Prime Wholesale LLC",
+
+    "phone": "312-555-0176",
+
+    "city": "Chicago",
+
+    "street": "Market Street",
+
+    "number": 78,
+
+    "state": "IL",
+
+    "birthdate": "2002-03-25"
+
+  },
+
+  {
+
+    "id": "SUP-KM0012-45B67A",
+
+    "name": "West Coast Distributors",
+
+    "phone": "213-555-0154",
+
+    "city": "Los Angeles",
+
+    "street": "Supply Road",
+
+    "number": 52,
+
+    "state": "CA",
+
+    "birthdate": "2000-11-08"
+
+  },
+
+  {
+
+    "id": "SUP-ZY9X12WQF8",
+
+    "name": "Northeast Traders",
+
+    "phone": "646-555-0199",
+
+    "city": "New York",
+
+    "street": "Broadway",
+
+    "number": 980,
+
+    "state": "NY",
+
+    "birthdate": "1995-04-17"
+
+  },
+
+  {
+
+    "id": "SUP-PL04R6-C88ND",
+
+    "name": "Southern Goods Ltd.",
+
+    "phone": "404-555-0187",
+
+    "city": "Atlanta",
+
+    "street": "Peachtree Street",
+
+    "number": 230,
+
+    "state": "GA",
+
+    "birthdate": "1997-06-30"
+
+  }
+
+]
+
+*
+
+db.suppliers.updateOne(
+
+  { name: "Prime Wholesale LLC" }, // Filtro: Selecciona el documento basado en el nombre.
+
+  { $set: { phone: "321-212-9865" } } // Actualización: Cambia el campo `phone`.
+
+)
+
+
+
+
+
+
+
+
+
+
+
