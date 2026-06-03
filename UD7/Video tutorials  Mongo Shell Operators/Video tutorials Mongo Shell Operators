@@ -1,0 +1,224 @@
+ db.createCollection('books')
+
+ db.createCollection(‘testCollection')
+
+db.createCollection('testCollection')
+
+show collections
+
+*
+
+db.testCollection.drop()
+
+show collections
+
+*
+
+db.books.insertMany(
+
+[
+
+  {
+
+    "Title": "1984",
+
+    "Author": "George Orwell",
+
+    "Categories": ["Science Fiction", "Classics"],
+
+    "Stock": 5,
+
+    "Edition": {
+
+      "Format": "Paperback",
+
+      "Pages": 336
+
+    },
+
+    "Language": "English",
+
+    "ISBN": 9780141036144
+
+  },
+
+  {
+
+    "Title": "Brave New World",
+
+    "Author": "Aldous Huxley",
+
+    "Categories": ["Science Fiction"],
+
+    "Stock": 23,
+
+    "Language": "English"
+
+  },
+
+  {
+
+    "Title": "A Clockwork Orange",
+
+    "Author": "Anthony Burgess",
+
+    "Categories": ["Science Fiction", "Crime", "Crime Fiction", "Classics"],
+
+    "Stock": 10,
+
+    "Edition": {
+
+      "Format": "Paperback",
+
+      "Pages": 144
+
+    },
+
+    "Language": "English",
+
+    "PublishedDate": "2019-08-03"
+
+  }
+
+]
+
+)
+
+*
+
+
+db.books.bulkWrite([
+
+  {
+
+    insertOne: {
+
+      document: {
+
+        "Title": "Fahrenheit 451",
+
+        "Author": "Ray Bradbury",
+
+        "Categories": ["Science Fiction", "Classics"],
+
+        "Stock": 15,
+
+        "Edition": {
+
+          "Format": "Paperback",
+
+          "Pages": 256
+
+        },
+
+        "Language": "English",
+
+        "PublishedDate": "2012-06-10"
+
+      }
+
+    }
+
+  },
+
+  {
+
+    insertOne: {
+
+      document: {
+
+        "Title": "The Handmaid's Tale",
+
+        "Author": "Margaret Atwood",
+
+        "Categories": ["Dystopian", "Science Fiction", "Classics"],
+
+        "Stock": 8,
+
+        "Edition": {
+
+          "Format": "Hardcover",
+
+          "Pages": 311
+
+        },
+
+        "Language": "English",
+
+        "ISBN": 9780385490818,
+
+        "PublishedDate": "1985-09-01"
+
+      }
+
+    }
+
+  },
+
+  {
+
+    insertOne: {
+
+      document: {
+
+        "Title": "Do Androids Dream of Electric Sheep?",
+
+        "Author": "Philip K. Dick",
+
+        "Categories": ["Science Fiction", "Cyberpunk", "Classics"],
+
+        "Stock": 12,
+
+        "Edition": {
+
+          "Format": "Paperback",
+
+          "Pages": 210
+
+        },
+
+        "Language": "English",
+
+        "PublishedDate": "1996-05-01",
+
+        "ISBN": 9780345404473
+
+      }
+
+    }
+
+  }
+
+]);
+
+*
+
+db.books.find({Categories: "Crime"})
+
+*
+
+db.books.find({Categories: {$in: ["Crime", "Cyberpunk" ]}})
+
+*
+
+db.books.find({Categories: {$in: ["Crime", "Cyberpunk" ]}}).sort({PublishedDate: -1})
+
+*
+
+db.books.find({Categories: {$in: ["Crime", "Cyberpunk" ]}}).sort({PublishedDate: 1})
+
+*
+
+db.books.find({Categories: {$in: ["Crime", "Cyberpunk" ]}}).count()
+
+*
+
+db.books.find(
+
+{Language:"English", 
+
+Stock: {$gt: 10}
+
+}
+
+)
