@@ -1,0 +1,53 @@
+<p dir="ltr" style="text-align: left;"></p>
+<p dir="ltr"></p>
+<p dir="ltr"><strong><span>Video tutorials&nbsp; Mongo Shell</span></strong></p>
+<p dir="ltr"></p>
+<p></p>
+<p><br></p>
+<p dir="ltr"><strong>Updates</strong></p>
+<p dir="ltr"><a href="https://youtu.be/uj1jO5M8CI0" target="_blank">https://youtu.be/uj1jO5M8CI0</a></p>
+<p dir="ltr">CODE<br></p>
+<p dir="ltr">db.books.update(</p>
+<p dir="ltr"><span style="white-space: normal;"><span style="white-space:pre"> </span>{Title: '1984'},</span></p>
+<p dir="ltr"><span style="white-space: normal;"><span style="white-space:pre"> </span>{ Title: '1984',</span></p>
+<p dir="ltr">&nbsp; &nbsp; Author: 'George Orwell',</p>
+<p dir="ltr">&nbsp; &nbsp; Categories: [ 'Science Fiction', 'Classics' ],</p>
+<p dir="ltr">&nbsp; &nbsp; Stock: 5,</p>
+<p dir="ltr">&nbsp; &nbsp; Language: 'English'</p>
+<p dir="ltr">}</p>
+<p dir="ltr">)<span style="white-space:pre"> </span></p>
+<p dir="ltr">*</p>
+<p dir="ltr">db.books.replaceOne(</p>
+<p dir="ltr">&nbsp; &nbsp; { Title: '1984' },&nbsp; // Filtro</p>
+<p dir="ltr">&nbsp; &nbsp; {</p>
+<p dir="ltr">&nbsp; &nbsp; &nbsp; &nbsp; Title: '1984',</p>
+<p dir="ltr">&nbsp; &nbsp; &nbsp; &nbsp; Author: 'George Orwell',</p>
+<p dir="ltr">&nbsp; &nbsp; &nbsp; &nbsp; Categories: ['Science Fiction', 'Classics'],</p>
+<p dir="ltr">&nbsp; &nbsp; &nbsp; &nbsp; Stock: 5,</p>
+<p dir="ltr">&nbsp; &nbsp; &nbsp; &nbsp; Language: 'English'</p>
+<p dir="ltr">&nbsp; &nbsp; }</p>
+<p dir="ltr">)</p>
+<p>*</p>
+<p>db.books.updateOne(</p>
+<p>&nbsp; &nbsp; { Title: '1984' },&nbsp; // Filtres</p>
+<p>&nbsp; &nbsp; {&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; $set: {&nbsp; // Operador d'actualització</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Author: 'George Eric Orwell',</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Language: 'Spanish'</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; }</p>
+<p>)</p>
+<p><span style="font-size: 0.9375rem;">*</span></p>
+<p><span style="">db.books.update({Title: "1984"}, {$rename: {Stock: "AvailableStock"}})</span></p>
+<p><span style="">*</span></p>
+<p><span style="">db.books.updateMany({Language: "English"}, {$set: {Stock: 30}})</span></p>
+<p><span style="">+</span></p>
+<p><span style="">db.books.updateOne({Title: "Fahrenheit 451"}, {$set: {Language: "Spanish"}})</span></p>
+<p><span style="">*</span></p>
+<p><span style="">db.books.deleteOne({Title: "Fahrenheit 451"})</span></p>
+<p><span style="">*</span></p>
+<p><span style="">db.books.deleteMany({ "Edition.Format": "Paperback" })</span></p>
+<p><span style="">*</span></p>
+<p><span style="">db.books.deleteMany({ "Edition.Format": "Paperback" })</span></p>
+<p></p>
+<p></p>
