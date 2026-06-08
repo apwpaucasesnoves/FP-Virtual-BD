@@ -1,0 +1,141 @@
+db.clients.insert(
+
+{
+
+    "firstName": "John",
+
+    "lastName": "Smith",
+
+    "age": 25,
+
+    "address": {
+
+        "streetAddress": "21 2nd Street",
+
+        "city": "New York",
+
+        "state": "NY",
+
+        "postalCode": "10021"
+
+    },
+
+    "phoneNumber": "646 555-4567"
+
+}
+
+)
+
+*
+
+db.clients.insertOne(
+
+{
+
+    "firstName": "John",
+
+    "lastName": "Smith",
+
+    "age": 25,
+
+    "address": {
+
+        "streetAddress": "21 2nd Street",
+
+        "city": "New York",
+
+        "state": "NY",
+
+        "postalCode": "10021"
+
+    },
+
+    "phoneNumber": "646 555-4567"
+
+}
+
+)
+*
+
+db.clients.insertMany(
+
+[
+
+{
+
+"firstName": "Ann",
+
+"lastName": "Muller",
+
+"age":57 ,
+
+"address": {
+
+     "streetAddress": "2 Main Street",
+
+     "city": "Los Angeles",
+
+     "state": "CA",
+
+     "postalCode": "27021"
+
+},
+
+"phoneNumber": "655 547-7785"
+
+},
+
+{
+
+"firstName": "Michael",
+
+"lastName": "Gonzales",
+
+"age": 20,
+
+"address": {
+
+     "streetAddress": " 47 Martin Luther King",
+
+     "city": "Houston",
+
+     "state": "TX",
+
+     "postalCode": "87554"
+
+},
+
+"phoneNumber": "324 342-4886"
+
+}
+
+]
+
+)
+*
+ db.clients.find({firstName: "Michael"})
+*
+ db.clients.find({age:57})
+*
+db.clients.update({age: 57}, {$set: {age: 58}})
+*
+db.clients.updateOne({age: 57}, {$set: {age: 58}})
+*
+db.clients.update({firstName: "Michael"}, {$set: {age: 25}})
+*
+db.clients.find({age: 25})
+*
+db.clients.find({age: 25}).limit(1)
+*
+
+db.clients.deleteMany({"address.state": "TX"})
+
+*
+
+ db.clients.find()
+*
+use business
+
+db.dropDatabase()
+
+show dbs
